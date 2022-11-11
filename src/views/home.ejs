@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<%- include('incs/head') %>
+
+<body>
+    <%- include('incs/header') %>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <% if (userLogged) { %>
+                    <h1>Bienvenido <%- userLogged.email %> </h1>
+                <% } else { %>
+                    <h1>No estas logueado</h1>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <%- include('incs/footer') %>
+</body>
+
+</html>
