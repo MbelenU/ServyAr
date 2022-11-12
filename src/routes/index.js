@@ -1,58 +1,22 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
 
 const { authGuestMiddleware, authMiddleware } = require('../middlewares/auth');
 
-router.get('/', (req, res) => {
-    // let categorias = await modelCategoria.findAll();
-    let categorias = [
-        {
-            id: 1,
-            nombre: 'Abogado',
-            slug: 'abogado',
-            image: '/images/img-svg/electricista.svg',
-        },
-        {
-            id: 2,
-            nombre: 'Albañil',
-            nombre: 'Abogado',
-            image: '/images/img-svg/electricista.svg',
-        },
-        {
-            id: 3,
-            nombre: 'Arquitecto',
-            slug: 'arquitecto',
-            image: '/images/img-svg/electricista.svg',
-        },
-        {
-            id: 4,
-            nombre: 'Cuidador de Perro',
-            slug: 'cuidador-de-perro',
-            image: '/images/img-svg/electricista.svg',
-        },
-        {
-            id: 5,
-            nombre: 'Electricista',
-            slug: 'electricista',
-            image: '/images/img-svg/electricista.svg',
-        },
-    ];
+const modelServicio = require('../models/servicios');
+
+router.get('/', async (req, res) => {
+    let servicios = await modelServicio.getAll();
     res.render('index', {
-        categorias: categorias
+        categorias: servicios
     });
 });
 
 
-router.get('/categorias/:nombreCategoria', async (req, res) => {
-    // const categoria = await modelCategoria.findBySlug(req.params.nombreCategoria);
-    const categoria = {
-        id: 5,
-        nombre: 'Electricista',
-        slug: 'electricista',
-        image: '/images/img-svg/electricista.svg',
-    };
+router.get('/categorias/:idServicio', async (req, res) => {
+    const servicio = await modelServicio.find(req.params.idServicio);
     res.render('categoria', {
-        categoria,
+        categoria: servicio,
     });
 });
 

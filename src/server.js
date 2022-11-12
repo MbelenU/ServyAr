@@ -1,7 +1,7 @@
-const express = require('express')
-const path = require('path')
-const app = express()
-const port = 3000
+const express = require('express');
+const path = require('path');
+const app = express();
+const port = 3000;
 
 const dotenv = require('dotenv');
 dotenv.config();
@@ -43,16 +43,16 @@ app.use(authUserMiddleware);
 // routes
 app.use('/auth', require('./routes/auth'));
 app.use('/', require('./routes/index'));
-app.get('/login', require('./routes/login'));
-app.get('/registro', require('./routes/registro'));
-app.get('/cliente', require('./routes/cliente'));
-app.get('/contrato', require('./routes/contrato'));
-app.get('/rol', require('./routes/rol'));
-app.get('/oferente', require('./routes/oferente'));
-app.get('/editarperfil', require('./routes/editarperfil'));
-app.get('/contratooferente', require('./routes/contratooferente'));
-app.get('/formcontratacion', require('./routes/formcontratacion'));
-app.get('/perfiloferente', require('./routes/perfiloferente'));
+app.use('/login', require('./routes/login'));
+app.use('/registro', require('./routes/registro'));
+app.use('/cliente', require('./routes/cliente'));
+app.use('/contrato', require('./routes/contrato'));
+app.use('/rol', require('./routes/rol'));
+app.use('/oferente', require('./routes/oferente'));
+app.use('/editarperfil', require('./routes/editarperfil'));
+app.use('/contratooferente', require('./routes/contratooferente'));
+app.use('/formcontratacion', require('./routes/formcontratacion'));
+app.use('/perfiloferente', require('./routes/perfiloferente'));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
