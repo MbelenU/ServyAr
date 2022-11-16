@@ -31,7 +31,7 @@ class Contrato {
     }
 
     fill(data) {
-        this.Tipo = data?.Tipo;
+        this.Estado = data?.Estado;
     }
 
 

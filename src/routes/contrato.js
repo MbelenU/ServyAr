@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 
 router.get('/contrato/:Id_propuesta', async (req, res) => {
     const propuesta = await modelContrato.find(req.params.Id_propuesta);
-    res.render('categoria', {
+    res.render('contrato', {
         contratos: propuesta,
     });
 });
