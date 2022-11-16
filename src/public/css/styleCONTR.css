@@ -52,11 +52,14 @@
   }
    
   .contrato button{
-    width: 100%;
+    width: 80px;
     margin: 15px 0px;
     padding: 10px;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
     cursor: pointer;
+    margin-left: 2%;
+    margin-bottom: 15%;
+    font-size: 12px;
     position: relative;
   }
 
@@ -78,7 +81,7 @@
     padding: 10px;
     background: #E8631C;
     color: #fff;
-    font-size: 12px;
+    font-size: 10px;
     border-color: #E8631C;
     /* box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2); */
     cursor: pointer;

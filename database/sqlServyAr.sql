@@ -1,4 +1,6 @@
-
+create database servyar;
+drop database servyar;
+use servyar;
 
 create table Usuario(
 	Id_usuario int not null auto_increment,
@@ -111,7 +113,7 @@ create table Propuesta(
 	Fecha_inicio date not null,
 	Fecha_fin date not null,
 	Monto_a_abonar double not null,
-	Puntaje double
+	Estado varchar(100)
 );
 
 
@@ -196,13 +198,18 @@ insert into Catalogo_detalle(Id_cabecera_det, Id_tipo_serv, Descripcion ) values
 
 
 
-insert into Propuesta(Id_oferente_p, Id_cliente_p, Fecha_inicio, Fecha_fin, Monto_a_abonar, Puntaje) values
-					 (1, 1, '2022-05-12', '2022-07-07', 16456, 0),
-					 (2, 1, '2022-05-12', '2022-06-30', 15000, 0),
-					 (3, 2, '2022-08-08', '2023-01-19', 150000, 0);
-
+insert into Propuesta(Id_oferente_p, Id_cliente_p, Fecha_inicio, Fecha_fin, Monto_a_abonar, Estado) values
+					 (1, 1, '2022-05-12', '2022-07-07', 16456, 'Aceptado'),
+					 (2, 1, '2022-05-12', '2022-06-30', 15000, 'Rechazado'),
+					 (3, 2, '2022-08-08', '2023-01-19', 150000, 'Cancelado');
 
 
 insert into Propuesta_estado(Id_propuesta_p_e, Id_estado_p_e, Fecha) values
 					  (1, 2, '2022-11-11'),
 					  (2, 1, '2022-11-13');
+
+
+
+UPDATE `propuesta` SET `Fecha_inicio` = DATE('2022-05-12'), `Fecha_fin` = DATE('2022-07-07') WHERE `propuesta`.`Id_propuesta` = 1;
+UPDATE `propuesta` SET `Fecha_inicio` = DATE('2022-05-12'), `Fecha_fin` = DATE('2022-06-30') WHERE `propuesta`.`Id_propuesta` = 2;
+UPDATE `propuesta` SET `Fecha_inicio` = DATE('2022-08-08'), `Fecha_fin` = DATE('2023-01-19') WHERE `propuesta`.`Id_propuesta` = 3;
